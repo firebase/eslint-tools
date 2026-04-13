@@ -34,5 +34,9 @@
     "mocha": "^11.7.5",
     "tsx": "^4.21.0",
     "typescript": "^5.9.3"
+  },
+  "overrides": {
+    "serialize-javascript": "^7.0.5",
+    "diff": "^8.0.3"
   }
 }
