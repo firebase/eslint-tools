@@ -57,7 +57,6 @@ interface ParseResult {
 }
 
 export function parseForESLint(code: string, options?: TSESLint.ParserOptions): ParseResult {
-  // TODO: only parse files that are compatible
   const chars = new antlr4.InputStream(code);
   const lexer = new FirebaseRulesLexer(chars as unknown as CharStream);
   const tokens = new antlr4.CommonTokenStream(lexer);
