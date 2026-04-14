@@ -5,8 +5,14 @@
   "type": "module",
   "main": "dist/src/index.js",
   "exports": {
-    ".": "./dist/src/index.js",
-    "./parser": "./dist/src/parser.js"
+    ".": {
+      "types": "./dist/src/index.d.ts",
+      "import": "./dist/src/index.js"
+    },
+    "./parser": {
+      "types": "./dist/src/parser.d.ts",
+      "import": "./dist/src/parser.js"
+    }
   },
   "types": "dist/src/index.d.ts",
   "license": "Apache-2.0",
