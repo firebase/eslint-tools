@@ -59,15 +59,15 @@ export default [
   {
     files: ["**/*.rules"],
     plugins: {
-      "firebase-rules": firebaseRulesPlugin
+      "@firebase/security-rules": firebaseRulesPlugin
     },
     languageOptions: {
       parser: firebaseRulesPlugin.parser,
     },
     rules: {
-      "firebase-rules/no-open-reads": "warn",
-      "firebase-rules/no-open-writes": "error",
-      "firebase-rules/no-redundant-matches": "error"
+      "@firebase/security-rules/no-open-reads": "warn",
+      "@firebase/security-rules/no-open-writes": "error",
+      "@firebase/security-rules/no-redundant-matches": "error"
     }
   }
 ];

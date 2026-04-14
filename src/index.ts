@@ -36,23 +36,23 @@ const plugin = {
 
 export const flatRecommended = {
   files: ['**/*.rules'],
-  plugins: { 'firebase-rules': plugin },
+  plugins: { '@firebase/security-rules': plugin },
   languageOptions: {
     parser
   },
   rules: {
-    'firebase-rules/no-open-reads': 'warn',
-    'firebase-rules/no-open-writes': 'error',
-    'firebase-rules/no-redundant-matches': 'error'
+    '@firebase/security-rules/no-open-reads': 'warn',
+    '@firebase/security-rules/no-open-writes': 'error',
+    '@firebase/security-rules/no-redundant-matches': 'error'
   }
 };
 
 const legacyRecommended = {
-  plugins: ['firebase-rules'], // Old string array style
+  plugins: ['@firebase/security-rules'], // Old string array style
   rules: {
-    'firebase-rules/no-open-reads': 'warn',
-    'firebase-rules/no-open-writes': 'error',
-    'firebase-rules/no-redundant-matches': 'error'
+    '@firebase/security-rules/no-open-reads': 'warn',
+    '@firebase/security-rules/no-open-writes': 'error',
+    '@firebase/security-rules/no-redundant-matches': 'error'
   }
 };
 
