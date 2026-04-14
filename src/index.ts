@@ -28,7 +28,7 @@ export const rules = {
 
 const plugin = {
   meta: {
-    name: 'eslint-plugin-firebase-rules',
+    name: '@firebase/eslint-plugin-security-rules',
     version: '1.0.0',
   },
   rules,
