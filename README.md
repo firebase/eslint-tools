@@ -1,4 +1,4 @@
-# ESLint Plugin: Firebase Rules
+# ESLint Plugin: Firebase Security Rules
 
 A custom ESLint plugin for fully validating Firebase Security Rules (`.rules` files). 
 
@@ -11,7 +11,7 @@ Powered directly by the authoritative ANTLR4 `FirebaseRulesParser` grammar used 
 Install the plugin:
 
 ```bash
-npm install eslint-plugin-firebase-rules --save-dev
+npm install @firebase/eslint-plugin-security-rules --save-dev
 ```
 
 ### 2. Configuration
@@ -20,15 +20,13 @@ Add the plugin to your `eslint.config.js` or `.eslintrc` configuration. You must
 
 **Flat Config (`eslint.config.js`) - Recommended Setup:**
 ```javascript
-import firebaseRulesPlugin from 'eslint-plugin-firebase-rules';
+import firebaseRulesPlugin from '@firebase/eslint-plugin-security-rules';
 
 export default [
   {
     ...
   },
-  {
-    firebaseRulesPlugin.configs['flat/recommended'] // Apply recommended rules
-  }
+  firebaseRulesPlugin.configs['flat/recommended'] // Apply recommended rules
 ];
 ```
 
@@ -44,10 +42,10 @@ module.exports = {
       files: ['*.rules'],
       
       // 2. Point to your custom parser so ESLint knows how to read the file
-      parser: 'eslint-plugin-firebase-rules/parser', 
+      parser: '@firebase/eslint-plugin-security-rules/parser', 
       
       // 3. Extend your legacy config using the magic string format
-      extends: ['plugin:firebase-rules/recommended'],
+      extends: ['plugin:@firebase/security-rules/recommended'],
     }
   ]
 };
@@ -55,21 +53,21 @@ module.exports = {
 
 **Flat Config (`eslint.config.js`) - Manual/Explicit Setup:**
 ```javascript
-import firebaseRulesPlugin from 'eslint-plugin-firebase-rules';
+import firebaseRulesPlugin from '@firebase/eslint-plugin-security-rules';
 
 export default [
   {
     files: ["**/*.rules"],
     plugins: {
-      "firebase-rules": firebaseRulesPlugin
+      "@firebase/security-rules": firebaseRulesPlugin
     },
     languageOptions: {
       parser: firebaseRulesPlugin.parser,
     },
     rules: {
-      "firebase-rules/no-open-reads": "warn",
-      "firebase-rules/no-open-writes": "error",
-      "firebase-rules/no-redundant-matches": "error"
+      "@firebase/security-rules/no-open-reads": "warn",
+      "@firebase/security-rules/no-open-writes": "error",
+      "@firebase/security-rules/no-redundant-matches": "error"
     }
   }
 ];
