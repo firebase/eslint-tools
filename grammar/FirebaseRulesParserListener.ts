@@ -18,7 +18,8 @@
 
 // Generated from grammar/FirebaseRulesParser.g4 by ANTLR 4.13.1
 // jshint ignore: start
-import antlr4 from 'antlr4';
+import antlr4_lib from 'antlr4';
+const antlr4 = antlr4_lib.tree ? antlr4_lib : antlr4_lib.default;
 
 // This class defines a complete listener for a parse tree produced by FirebaseRulesParser.
 export default class FirebaseRulesParserListener extends antlr4.tree.ParseTreeListener {
