@@ -15,7 +15,7 @@
  */
 
 import assert from 'assert';
-import { parseForESLint } from '../../dist/src/parser.js';
+import { parseForESLint } from '../../src/parser.js';
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
