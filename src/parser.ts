@@ -14,7 +14,8 @@
  * limitations under the License.
  */
 
-import antlr4, { Recognizer, CharStream } from 'antlr4';
+import antlr4_lib, { Recognizer, CharStream } from 'antlr4';
+const antlr4 = (antlr4_lib as any).atn ? antlr4_lib : (antlr4_lib as any).default;
 import { TSESLint } from '@typescript-eslint/utils';
 // @ts-ignore
 import FirebaseRulesLexer from '../grammar/FirebaseRulesLexer.js';
@@ -62,7 +63,7 @@ export function parseForESLint(code: string, options?: TSESLint.ParserOptions): 
   const tokens = new antlr4.CommonTokenStream(lexer);
   const parser = new FirebaseRulesParser(tokens);
 
-  parser.buildParseTrees = true;
+  (parser as any).buildParseTrees = true;
 
   const errorListener = new ErrorListener();
   (lexer as unknown as Recognizer<unknown>).removeErrorListeners();
