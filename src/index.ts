@@ -29,7 +29,7 @@ export const rules = {
 
 const plugin = {
   meta: {
-    name: '@firebase/eslint-plugin-security-rules',
+    name: packageJson.name,
     version: packageJson.version
   },
   rules,
