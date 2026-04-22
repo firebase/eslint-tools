@@ -18,6 +18,7 @@ import * as parser from './parser.js';
 import noOpenReads from './rules/no-open-reads.js';
 import noOpenWrites from './rules/no-open-writes.js';
 import noRedundantMatches from './rules/no-redundant-matches.js';
+import packageJson from '../package.json' with { type: 'json' };
 
 export const rules = {
   'no-open-reads': noOpenReads,
@@ -28,15 +29,20 @@ export const rules = {
 
 const plugin = {
   meta: {
-    name: '@firebase/eslint-plugin-security-rules',
-    version: '1.0.0',
+    name: packageJson.name,
+    version: packageJson.version
   },
   rules,
 };
 
 export const flatRecommended = {
   files: ['**/*.rules'],
-  plugins: { '@firebase/security-rules': plugin },
+  plugins: {
+    '@firebase/security-rules': {
+      meta: plugin.meta,
+      rules: plugin.rules
+    }
+  },
   languageOptions: {
     parser
   },
